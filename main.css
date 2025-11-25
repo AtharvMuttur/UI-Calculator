@@ -1,139 +1,237 @@
-html, body {
-    
- -webkit-user-select: none; /* Safari */        
- -moz-user-select: none; /* Firefox */
- -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-    
-    height: 100%;
-    width:100%;
-    padding: 0;
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+html, body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
     overflow-x: hidden;
 }
 
-/* used white colour for foreground so that disabled button is not visible to the screen */
-button:disabled{
-    color: #fa0000;
-}
-/* made the hover background color to white so the annoying hover in empty space is removed */
-
-button:disabled:hover{
-    color:white;
-    background-color:rgb(128, 255, 255);
-}
-.noHover{
-    pointer-events: none;
-}
-
 body {
-    font-family: monospace;
-    background-image: linear-gradient(to left, lightpink, lightblue);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 h1 {
-    padding: 25px;
-    margin: 20px;
+    color: white;
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    height: 410px;
-    width: 340px;
-    box-shadow: 6px 8px 2px grey;
-    background: white;
-    border-radius: 10px;
+    width: 360px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .output {
-    position: relative;
-    top: 20px;
-    text-align: center;
-}
-
-input {
-    text-align: end;
-    padding: 8px;
-    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 #display {
+    width: 100%;
+    height: 70px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 28px;
+    text-align: right;
+    font-weight: 500;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+#display:focus {
     outline: none;
-    width: 280px;
-    height: 40px;
-    background: #f1f1f1;
-    border-radius: 10px;
-    border-color: none;
-    border: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .keyboard {
-    position: relative;
-    top: 40px;
-    text-align: center;
-}
-
- /* it Removes Outline of all Button */
-*:focus {
-    outline: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 button {
-    font-family: sans-serif;
-    font-weight: bolder;
-    font-size: 22px;
-    color:"black";
-    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
     border: none;
-    margin: 6px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
     outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Number buttons */
+.number-btn {
+    background: #fff;
+    color: #2d3748;
+    border: 2px solid #e2e8f0;
+}
+
+.number-btn:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+/* Operator buttons */
+.operator-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.operator-btn:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #63408b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Function buttons (CE, C) */
+.function-btn {
+    background: #fc8181;
+    color: white;
+}
+
+.function-btn:hover {
+    background: #f56565;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(252, 129, 129, 0.3);
+}
+
+/* Equal button */
+.equal-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    font-size: 24px;
+}
+
+.equal-btn:hover {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(72, 187, 120, 0.3);
+}
+
+/* Instructions */
+.instructions {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+.instructions p {
+    color: white;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 360px;
+        padding: 20px;
+    }
+
+    #display {
+        height: 60px;
+        font-size: 24px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .equal-btn {
+        font-size: 20px;
+    }
+}
+
+/* Add ripple effect on click */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
     border-radius: 50%;
-    width: 49px;
-    height: 45px;
-    line-height:normal;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
-button:nth-child(1) {
-    background: lightgrey;
-}
-
-button:nth-child(2) {
-    font-weight: 550;
-    background: lightgrey;
-}
-
-button:nth-child(3) {
-    background: lightgrey;
-}
-
-button:nth-child(4) {
-    background: lightgreen;
-}
-
-button:nth-child(8) {
-    background: aqua;
-}
-
-button:nth-child(12) {
-    padding: 0px;
-    font-size: 30px;
-    font-family: monospace;
-    background: orange;
-}
-
-button:nth-child(16) {
-    background: pink;
-    font-size: 25px;
-}
-
-button:nth-child(20) {
-    background: yellow;
-}
-
-button:hover {
-    background: rgb(247 230 236);
+button:active::after {
+    width: 200px;
+    height: 200px;
 }

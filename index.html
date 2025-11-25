@@ -2,79 +2,55 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale = 1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Calculator</title>
-
+    <title>Advanced Calculator</title>
     <link type="text/css" href="main.css" rel="stylesheet">
-
 </head>
 
 <body>
-
-    <h1>Simple Calculator to Calculate Anything</h1>
+    <h1>Advanced Calculator</h1>
 
     <div class="container">
-
-
         <div class="output">
-
-            <input maxlength="20" id="display" type="text" name="answer" autofocus>
-
+            <input maxlength="25" id="display" type="text" name="answer" placeholder="0" readonly>
         </div>
 
         <div class="keyboard">
-
-            <button id="CE" onclick="document.getElementById('display').value = display.value.slice(0,-1)">CE</button>
-
-            <button id="clear" onclick="document.getElementById('display').value =''">C</button>
-
-            <button id="div" onclick="document.getElementById('display').value += '/'">/</button>
-
-            <button id="mod" onclick="document.getElementById('display').value += '%'">%</button>
+            <button id="CE" class="function-btn">CE</button>
+            <button id="clear" class="function-btn">C</button>
+            <button id="div" class="operator-btn">/</button>
+            <button id="mod" class="operator-btn">%</button>
             
-            <button id="one" onclick="document.getElementById('display').value +='1'">1</button>
+            <button id="one" class="number-btn">1</button>
+            <button id="two" class="number-btn">2</button>
+            <button id="three" class="number-btn">3</button>
+            <button id="add" class="operator-btn">+</button>
 
-            <button id="two" onclick="document.getElementById('display').value +='2'">2</button>
+            <button id="four" class="number-btn">4</button>
+            <button id="five" class="number-btn">5</button>
+            <button id="six" class="number-btn">6</button>
+            <button id="minus" class="operator-btn">-</button>
 
-            <button id="three" onclick="document.getElementById('display').value +='3'">3</button>
+            <button id="seven" class="number-btn">7</button>
+            <button id="eight" class="number-btn">8</button>
+            <button id="nine" class="number-btn">9</button>
+            <button id="multiply" class="operator-btn">*</button>
 
-            <button id="add" onclick="document.getElementById('display').value +='+'">+</button>
-
-
-            <button id="four" onclick="document.getElementById('display').value +='4'">4</button>
-
-            <button id="five" onclick="document.getElementById('display').value +='5'">5</button>
-
-            <button id="six" onclick="document.getElementById('display').value +='6'">6</button>
-
-            <button id="minus" onclick="document.getElementById('display').value +='-'">-</button>
-
-            <button id="seven" onclick="document.getElementById('display').value +='7'">7</button>
-
-            <button id="eight" onclick="document.getElementById('display').value +='8'">8</button>
-
-            <button id="nine" onclick="document.getElementById('display').value +='9'">9</button>
-
-            <button id="multiply" onclick="document.getElementById('display').value +='*'">*</button>
-             <!-- disableb the button so that the hover effect to be changed for disableb buttons -->
-            <button disabled class="noHover"></button>
-
-            <button id="zero" onclick="document.getElementById('display').value +='0'">0</button>
-
-            <button id="power" onclick="document.getElementById('display').value +='**'">^</button>
-
-            <button id="equal" type="submit" onclick="calculate(display.value)">=</button>
-
+            <button id="decimal" class="number-btn">.</button>
+            <button id="zero" class="number-btn">0</button>
+            <button id="power" class="operator-btn">^</button>
+            <button id="equal" class="equal-btn" type="submit">=</button>
         </div>
     </div>
 
-    <script type="text/javascript" src="script.js">
-    </script>
+    <div class="instructions">
+        <p>💡 Tip: You can use your keyboard! Press ESC to clear.</p>
+    </div>
 
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
